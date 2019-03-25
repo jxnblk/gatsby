@@ -20,30 +20,16 @@ This tutorial also uses [Yarn][] so be sure to install that before proceeding.
 
 ## Initial setup
 
-To create a new setup for developing this theme, you'll be using [gatsby-starter-theme][].
-In your terminal run the following to get started:
+This tutorial will use Yarn workspaces for developing the theme.
+If you haven't used workspaces before, see the previous post on
+[Setting up Yarn Workspace for Theme Development](#).
 
-```shell
-npx gatsby new my-gatsby-theme https://github.com/ChristopherBiscardi/gatsby-starter-theme
-```
-
-This will create a new directory with [Yarn workspaces][] preconfigured for developing a Gatsby theme.
-Switch to the `my-gatsby-theme` directory created by this command.
-Next, you'll want to rename the theme itself.
-
-Start by renaming the `gatsby-theme-minimal` directory.
-By convention, Gatsby themes start with the prefix `gatsby-theme-`.
-For the purposes of this tutorial, use `gatsby-theme-example-emotion`.
-You'll also need to rename the theme in these files:
-the root project's `package.json`,
-`gatsby-theme-example/emotion/package.json`,
-`gatsby-theme-example-emotion/README.md`,
-`example/package.json`,
-and `example/gatsby-config.js`.
+Create two new workspaces in your project, one for the theme itself and another for an example site to test the theme out.
+For the purposes of this tutorial, we'll be using the name `gatsby-theme-example-emotion`.
 
 ## Install dependencies
 
-Once you've given your new theme a name,
+Once you've set up these two workspaces,
 install the dependencies for all workspaces by running `yarn` in the root directory.
 Next, switch to the `gatsby-theme-example-emotion` directory and install the following dependencies:
 
