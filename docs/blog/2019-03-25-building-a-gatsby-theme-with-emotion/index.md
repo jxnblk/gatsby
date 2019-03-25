@@ -1,6 +1,6 @@
 ---
 title: Building a Gatsby theme with Emotion
-date: 2019-03-21
+date: 2019-03-25
 author: Brent Jackson
 excerpt: "How to get started building your own Gatsby theme with Emotion"
 tags:
