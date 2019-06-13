@@ -19,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-theme-notes`,
       options: {
-        notesPath: `/txt`,
+        rootPath: `/txt`,
       },
     },
   ],
@@ -30,7 +30,7 @@ module.exports = {
 
 | Key                   | Default value | Description                                                                                      |
 | --------------------- | ------------- | ------------------------------------------------------------------------------------------------ |
-| `notesPath`           | `/notes`      | Root url for all notes pages                                                                     |
+| `rootPath`           | `/`      | Root url for all notes pages                                                                     |
 | `mdx`                 | `true`        | Configure `gatsby-mdx` (if your website already is using the plugin pass `false` to turn it off) |
 | `homeText`            | `~`           | Root text for notes breadcrumb trail                                                             |
 | `breadcrumbSeparator` | `/`           | Separator for the breadcrumb trail                                                               |

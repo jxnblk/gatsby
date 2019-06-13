@@ -12,11 +12,11 @@ const Notes = require.resolve(`./src/templates/notes`)
 exports.createPages = async ({ graphql, actions }, pluginOptions) => {
   const { createPage } = actions
 
-  const { notesPath = `/notes` } = pluginOptions
+  const { rootPath = `/` } = pluginOptions
 
   const toNotesPath = node => {
     const { dir } = path.parse(node.parent.relativePath)
-    return path.join(notesPath, dir, node.parent.name)
+    return path.join(rootPath, dir, node.parent.name)
   }
 
   const result = await graphql(`
@@ -72,7 +72,7 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
 
     acc[dir] = acc[dir] || []
     acc[dir].push({
-      pagePath: path.join(notesPath, dir),
+      pagePath: path.join(rootPath, dir),
       url: toNotesPath(node),
       ...node,
     })
@@ -86,14 +86,14 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
         ...acc,
         {
           name: dir,
-          url: path.join(notesPath, dir),
+          url: path.join(rootPath, dir),
         },
       ],
       []
     )
 
     createPage({
-      path: path.join(notesPath, key),
+      path: path.join(rootPath, key),
       context: {
         breadcrumbs,
         urls: value.map(v => v.url),
@@ -103,7 +103,7 @@ exports.createPages = async ({ graphql, actions }, pluginOptions) => {
   })
 
   createPage({
-    path: notesPath,
+    path: rootPath,
     context: {
       urls: notesUrls,
       groupedNotes,
@@ -127,11 +127,11 @@ exports.onPreBootstrap = ({ store }, opts) => {
 
 exports.sourceNodes = (
   { actions: { createTypes, createNode }, schema },
-  { notesPath = `/notes`, homeText = `~`, breadcrumbSeparator = `/` }
+  { rootPath = `/`, homeText = `~`, breadcrumbSeparator = `/` }
 ) => {
   // Create the Garden type to solidify the field data types
   createTypes(`type NotesConfig implements Node {
-notesPath: String!
+rootPath: String!
 home: String
 breadcrumbSeparator: String
 }`)
@@ -139,7 +139,7 @@ breadcrumbSeparator: String
   // create garden data from plugin config
   const notesConfig = {
     breadcrumbSeparator,
-    notesPath,
+    rootPath,
     homeText,
   }
 
