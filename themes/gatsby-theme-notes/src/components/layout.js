@@ -12,7 +12,6 @@ export default props => (
         },
         body: {
           margin: 0,
-          fontFamily: `body`,
         },
       })}
     />

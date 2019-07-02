@@ -1,9 +1,9 @@
-import React from "react"
+/** @jsx jsx */
 import { Link } from "gatsby"
-import { Styled } from "theme-ui"
+import { jsx, Styled } from "theme-ui"
 
 export default ({ files }) => (
-  <ul css={{ padding: 0 }}>
+  <ul sx={{ padding: 0 }}>
     {files.map(url => (
       <li key={url}>
         <Styled.a as={Link} to={url}>

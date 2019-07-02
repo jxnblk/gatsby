@@ -1,6 +1,7 @@
-import React from "react"
+/** @jsx jsx */
 import { Link } from "gatsby"
-import { Styled, css } from "theme-ui"
+import { Fragment } from "react"
+import { jsx, Styled } from "theme-ui"
 
 import useOptions from "../use-options"
 import BreadcrumbDivider from "./breadcrumb-divider"
@@ -11,13 +12,13 @@ export default ({ links }) => {
 
   return (
     <nav
-      css={css({
+      sx={{
         mb: 3,
         "& a": {
           textDecoration: `none`,
           fontWeight: `bold`,
         },
-      })}
+      }}
     >
       <BreadcrumbHome text={homeText} />
       <BreadcrumbDivider text={breadcrumbSeparator} />
@@ -26,12 +27,12 @@ export default ({ links }) => {
         {basePath.replace(/^\//, ``)}
       </Styled.a>
       {links.map(link => (
-        <>
+        <Fragment>
           <BreadcrumbDivider text={breadcrumbSeparator} />
           <Styled.a as={Link} to={link.url} key={link.url}>
             {link.name}
           </Styled.a>
-        </>
+        </Fragment>
       ))}
     </nav>
   )
