@@ -1,6 +1,6 @@
-import React from "react"
+/** @jsx jsx */
 import { Link } from "gatsby"
-import { css, useColorMode, Styled } from "theme-ui"
+import { jsx, useColorMode, Styled } from "theme-ui"
 import Switch from "./switch"
 import Bio from "../components/bio"
 import sun from "../../assets/sun.png"
@@ -12,14 +12,14 @@ const Title = ({ children, location }) => {
   if (location.pathname === rootPath) {
     return (
       <Styled.h1
-        css={css({
+        sx={{
           my: 0,
           fontSize: 4,
-        })}
+        }}
       >
         <Styled.a
           as={Link}
-          css={{
+          sx={{
             color: `inherit`,
             boxShadow: `none`,
             textDecoration: `none`,
@@ -34,17 +34,17 @@ const Title = ({ children, location }) => {
     return (
       <Styled.h3
         as="p"
-        css={css({
+        sx={{
           my: 0,
-        })}
+        }}
       >
         <Styled.a
           as={Link}
-          css={css({
+          sx={{
             boxShadow: `none`,
             textDecoration: `none`,
             color: `primary`,
-          })}
+          }}
           to={`/`}
         >
           {children}
@@ -92,28 +92,28 @@ export default ({ children, title, ...props }) => {
   return (
     <header>
       <div
-        css={css({
+        sx={{
           maxWidth: `container`,
           mx: `auto`,
           px: 3,
           pt: 4,
-        })}
+        }}
       >
         <div
-          css={css({
+          sx={{
             display: `flex`,
             justifyContent: `space-between`,
             alignItems: `baseline`,
             mb: 4,
-          })}
+          }}
         >
           <Title {...props}>{title}</Title>
           {children}
           <Switch
             aria-label="Toggle dark mode"
-            css={css({
+            sx={{
               bg: `black`,
-            })}
+            }}
             checkedIcon={checkedIcon}
             uncheckedIcon={uncheckedIcon}
             checked={isDark}

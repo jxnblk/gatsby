@@ -1,5 +1,5 @@
-import React from "react"
-import { css, Styled } from "theme-ui"
+/** @jsx jsx */
+import { jsx, Styled } from "theme-ui"
 import Header from "./header"
 
 export default ({ children, ...props }) => (
@@ -7,12 +7,12 @@ export default ({ children, ...props }) => (
     <Header {...props} />
     <div>
       <div
-        css={css({
+        sx={{
           maxWidth: `container`,
           mx: `auto`,
           px: 3,
           py: 4,
-        })}
+        }}
       >
         {children}
       </div>

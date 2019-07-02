@@ -1,6 +1,7 @@
-import React, { Fragment } from "react"
+/** @jsx jsx */
+import { Fragment } from "react"
 import { Link } from "gatsby"
-import { Styled, css } from "theme-ui"
+import { jsx, Styled } from "theme-ui"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -17,13 +18,13 @@ const Posts = ({ location, posts, siteTitle, socialLinks }) => (
             <SEO title="Home" keywords={keywords} />
             <div>
               <Styled.h2
-                css={css({
+                sx={{
                   mb: 1,
-                })}
+                }}
               >
                 <Styled.a
                   as={Link}
-                  css={{
+                  sx={{
                     textDecoration: `none`,
                   }}
                   to={node.slug}

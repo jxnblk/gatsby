@@ -1,12 +1,13 @@
-import React, { Fragment } from "react"
-import { Styled, css } from "theme-ui"
+/** @jsx jsx */
+import { Fragment } from "react"
+import { jsx, Styled } from "theme-ui"
 
 const Footer = ({ socialLinks }) => (
   <footer
-    css={css({
+    sx={{
       mt: 4,
       pt: 3,
-    })}
+    }}
   >
     {socialLinks.map((platform, i, arr) => (
       <Fragment key={platform.url}>

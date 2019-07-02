@@ -1,13 +1,13 @@
-import React from "react"
+/** @jsx jsx */
 import ReactSwitch from "react-switch"
-import { css } from "theme-ui"
+import { jsx } from "theme-ui"
 
 export const Switch = props => (
   <ReactSwitch
     {...props}
-    css={css({
+    sx={{
       bg: `primary`,
-    })}
+    }}
   />
 )
 

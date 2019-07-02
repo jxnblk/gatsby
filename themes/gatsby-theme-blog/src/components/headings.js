@@ -1,5 +1,5 @@
-import React from "react"
-import { css } from "theme-ui"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 
 // from https://octicons.github.com/icon/link/
 const LinkIcon = props => (
@@ -21,7 +21,7 @@ const LinkIcon = props => (
 const heading = Tag => props => (
   <Tag
     {...props}
-    css={{
+    sx={{
       a: {
         visibility: `hidden`,
       },
@@ -32,11 +32,11 @@ const heading = Tag => props => (
   >
     <a
       href={`#${props.id}`}
-      css={css({
+      sx={{
         ml: `-20px`,
         pr: `4px`,
         color: `primary`,
-      })}
+      }}
     >
       <LinkIcon />
     </a>
